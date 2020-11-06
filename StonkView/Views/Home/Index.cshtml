@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<br />
+@*<div class="text-center">
+
+</div>*@
+
+<div class="input-container">
+    <input type="text" name="inputField" id="inputField" placeholder="Stock Finder"/>
+</div>
+
+<p id="Ticker" class="text-body"></p>
+<div id="chart"></div>
+<script src="~/js/stockchart.js"></script>
+<script type="text/javascript">
+    var input = document.getElementById("inputField");
+
+    input.addEventListener('change', function () {
+        var chart = new StockChart();
+        chart.element = document.getElementById('chart');
+        chart.key = 'QEEUW4RQQ3JJFSF2';
+        chart.ticker = document.getElementById("inputField").value;
+        chart.style.width = '100%';
+        chart.style.height = '420px';
+     
+        chart.draw();
+        document.getElementById("Ticker").innerHTML = "$" + document.getElementById("inputField").value;
+    });
+</script>

@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Watchlist";
+    StonkView.Controllers.WatchlistController.LoadStocks();
+}
+<br />
+<br />
+<div class="text-center">
+    <h1 class="display-4">Your Favorites</h1>
+</div>
+
+<p>
+    <a asp-action="LoadStocks">Test</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                TICKER
+            </th>
+            <th>
+                OPEN
+            </th>
+            <th>
+                CLOSE
+            </th>
+            <th>
+                VOLUME
+            </th>
+            <th>
+                HIGH
+            </th>
+            <th>
+                LOW
+            </th>
+            <th>EDIT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="color:dodgerblue">
+                @StonkView.Data.Stock.ticker
+            </td>
+            <td>
+                @StonkView.Data.Stock.open
+            </td>
+            <td>
+                @StonkView.Data.Stock.close
+            </td>
+            <td>
+                @StonkView.Data.Stock.volume
+            </td>
+            <td style="color:green">
+                @StonkView.Data.Stock.high
+            </td>
+            <td style="color:red">
+                @StonkView.Data.Stock.low
+            </td>
+            <td>
+                <a id="details" class="button">Details</a>
+                <a asp-action="Delete">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
