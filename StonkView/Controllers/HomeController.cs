@@ -9,6 +9,7 @@ using StonkView.Models;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System.Net;
+using static StonkView.Models.StockModel;
 
 namespace StonkView.Controllers
 {
@@ -28,32 +29,17 @@ namespace StonkView.Controllers
 
         public IActionResult Index()
         {
-            using (var webClient = new WebClient())
-            {
-                try
-                {
-                    String jsonString = webClient.DownloadString("http://newsapi.org/v2/everything?domains=wsj.com&apiKey=3d9659ce7cf74257b487ddb0021835ce");
-                    var news = NewsModel.NewsArray.FromJson(jsonString);
-                    ViewData["HomePage"] = news;
-                }
-                catch
-                {
-                    return View();
-                }          
-            }
+            //Logic.News.LoadNews();
+            //ViewData["News"] = Logic.News.news;
             return View();
         }
         public IActionResult Stocks()
         {
-            using (var webClient = new WebClient())
-            {
-                String jsonString = webClient.DownloadString("https://pkgstore.datahub.io/core/s-and-p-500-companies/constituents_json/data/8fd832966a715a70cb9cf3f723498e3b/constituents_json.json");
-                var stocks = StockModel.StockArray.FromJson(jsonString);
-                ViewData["StockList"] = stocks;
-            }
-
+            Logic.Stock.LoadStocks();
+            ViewData["StockList"] = Logic.Stock.stocks;
             return View();
         }
+
         public IActionResult StockDetails()
         {
             return View();
@@ -78,18 +64,18 @@ namespace StonkView.Controllers
             Console.WriteLine(accountSignUp.accountUsername + "SIGNUP");
             Console.WriteLine(accountSignUp.accountPassword + "SIGNUP");
 
-            MySqlConnection conn = new MySqlConnection("Data Source=localhost;Initial Catalog=StonkView;Integrated Security=True;Pooling=False");
+            //MySqlConnection conn = new MySqlConnection("Data Source=localhost;Initial Catalog=StonkView;Integrated Security=True;Pooling=False");
 
-            MySqlCommand cmd;
-            string cmdString;
-            conn.Open();
+            //MySqlCommand cmd;
+            //string cmdString;
+            //conn.Open();
 
-            cmdString = "INSERT INTO `account`(`accountName`, `accountPassword`, `accountMail`, `accountID`) VALUES('testName', 'testPassword','testMail', '2')";
+            //cmdString = "INSERT INTO `account`(`accountName`, `accountPassword`, `accountMail`, `accountID`) VALUES('testName', 'testPassword','testMail', '2')";
 
-            cmd = new MySqlCommand(cmdString, conn);
-            cmd.ExecuteReader();
+            //cmd = new MySqlCommand(cmdString, conn);
+            //cmd.ExecuteReader();
 
-            conn.Close();
+            //conn.Close();
             return View("Index");
         }
 

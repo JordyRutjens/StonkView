@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace StonkView.Data
+namespace StonkView.Factory
 {
-    public class Stock
+    public class StockData
     {
         public static string ticker;
         public static string name;
@@ -23,6 +20,5 @@ namespace StonkView.Data
         public static string dividentDate;
         public static string movingAverage50;
         public static string eps;
-
     }
 }

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.Interface", "Ston
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.Factory", "StonkView.Factory\StonkView.Factory.csproj", "{FB11128B-3482-436B-BC04-E201E70C409E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StonkView.Models", "Models\StonkView.Models.csproj", "{6F60FAEF-A557-4577-AF87-EBFD7E8A0DE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StonkView.Models", "StonkView.Models\StonkView.Models.csproj", "{300F4093-88E6-4060-AF78-8D10D53C0EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{FB11128B-3482-436B-BC04-E201E70C409E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB11128B-3482-436B-BC04-E201E70C409E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB11128B-3482-436B-BC04-E201E70C409E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F60FAEF-A557-4577-AF87-EBFD7E8A0DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F60FAEF-A557-4577-AF87-EBFD7E8A0DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F60FAEF-A557-4577-AF87-EBFD7E8A0DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F60FAEF-A557-4577-AF87-EBFD7E8A0DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{300F4093-88E6-4060-AF78-8D10D53C0EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{300F4093-88E6-4060-AF78-8D10D53C0EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{300F4093-88E6-4060-AF78-8D10D53C0EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{300F4093-88E6-4060-AF78-8D10D53C0EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

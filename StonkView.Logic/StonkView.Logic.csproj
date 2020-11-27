@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StonkView\StonkView.MVC.csproj" />
+    <ProjectReference Include="..\StonkView.Factory\StonkView.Factory.csproj" />
+    <ProjectReference Include="..\StonkView.Models\StonkView.Models.csproj" />
   </ItemGroup>
 
 </Project>

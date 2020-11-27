@@ -4,7 +4,7 @@
     input = document.getElementById("SearchStock");
     filter = input.value.toUpperCase();
     table = document.getElementById("StockTable");
-    tr = table.getElementsByTagName("tr");
+    tr = table.getElementById("SearchItem");
 
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
