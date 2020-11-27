@@ -14,9 +14,6 @@ namespace StonkView
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            //Controllers.WatchlistController.LoadStocks();
-            Console.WriteLine("TESTETSTTTTTTTTTTT 1");
-
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

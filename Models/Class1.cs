@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StonkView.Logic
+namespace Models
 {
     public class Class1
     {

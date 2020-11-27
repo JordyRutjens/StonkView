@@ -1,14 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "News";
+    var news = (NewsModel.NewsArray[])ViewData["HomePage"];
 }
+@model StonkView.Models.NewsModel
+
 <br />
 <br />
 @*<div class="text-center">
+    @foreach (NewsModel.NewsArray _news in news)
+    {
 
+        @Html.DisplayFor(modelItem => _news.Titel)
+
+        @Html.DisplayFor(modelItem => _news.Description)
+
+        @Html.DisplayFor(modelItem => _news.Url)
+
+    }
 </div>*@
 
 <div class="input-container">
-    <input type="text" name="inputField" id="inputField" placeholder="Stock Finder"/>
+    <input type="text" name="inputField" id="inputField" placeholder="Stock Finder" />
 </div>
 
 <p id="Ticker" class="text-body"></p>
@@ -24,7 +36,7 @@
         chart.ticker = document.getElementById("inputField").value;
         chart.style.width = '100%';
         chart.style.height = '420px';
-     
+
         chart.draw();
         document.getElementById("Ticker").innerHTML = "$" + document.getElementById("inputField").value;
     });

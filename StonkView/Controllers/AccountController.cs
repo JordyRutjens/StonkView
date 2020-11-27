@@ -6,30 +6,31 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Mvc;
+using StonkView.Models;
 
 namespace StonkView.Controllers
 {
-    public class AccountController
+    public class AccountController : Controller
     {
-        MySqlConnection conn;
 
-        void getConnection()
-        {
-            conn.ConnectionString = "datasource=localhost;port=3307;username=root;password=usbw;database=stonkview";
-        }
-        public void ValidateLogin()
-        {
-            conn = new MySqlConnection("");
-            conn.Open();
-            MySqlCommand comm = conn.CreateCommand();
+        //private static MySqlConnection conn;
 
-            //INSERT INTO users(`Name`,`Password`) VALUES(?name,?password)
-            comm.CommandText = "INSERT INTO `users`(`Name`, `Password`) VALUES('Test', 'TEST2')";
-            //comm.Parameters.Add("?name", MySqlDbType.VarChar).Value = "JRUT";
-            //comm.Parameters.Add("?password", MySqlDbType.VarChar).Value = "HIOJOI";
-            comm.ExecuteNonQuery();
-        }
+        //public ActionResult Post_CreateAccount(string username, string password)
+        //{
+        //    Console.WriteLine("Initial");
+
+        //    conn.ConnectionString = "Data Source=localhost;Initial Catalog=StonkView;Integrated Security=True;Pooling=False";
+        //    conn.Open();
+        //    MySqlCommand comm = conn.CreateCommand();
+
+        //    //INSERT INTO users(`Name`,`Password`) VALUES(?name,?password)
+        //    comm.CommandText = "INSERT INTO `account`(`accountName`, `accountPassword`, `accountMail`, `accountID`) VALUES('testName', 'testPassword','testMail', '2')";
+        //    //comm.Parameters.Add("?name", MySqlDbType.VarChar).Value = "JRUT";
+        //    //comm.Parameters.Add("?password", MySqlDbType.VarChar).Value = "HIOJOI";
+        //    comm.ExecuteNonQuery();
+
+        //}
     }
 }
 

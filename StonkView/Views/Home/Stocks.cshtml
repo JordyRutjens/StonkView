@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Stocks";
+    var stocks = (StockModel.StockArray[])ViewData["StockList"];
+}
+
+@model StonkView.Models.StockModel
+<br />
+<div class="text-center">
+    <h1 class="display-4">S&P 500</h1>
+</div>
+
+
+<p>
+    <input type="text" id="SearchStock" placeholder="Search Stock" onkeyup="Search()"></input>
+</p>
+
+<table class="table table-striped" id="StockTable">
+    <thead>
+        <tr>
+            <th>
+                SYMBOL
+            </th>
+            <th>
+                NAME
+            </th>
+            <th>
+                SECTOR
+            </th>
+
+            <th>EDIT</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StockModel.StockArray stock in stocks)
+        {
+            <tr>
+                <td style="color:dodgerblue">
+                    @Html.DisplayFor(modelItem => stock.Symbol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => stock.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => stock.Sector)
+                </td>
+                <td>
+                    <a asp-action="StockDetails" id="details">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
