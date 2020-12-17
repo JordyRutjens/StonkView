@@ -24,7 +24,7 @@ namespace StonkView.Models
 
         public partial class StockArray
         {
-            public static StockArray[] FromJson(string json) => JsonConvert.DeserializeObject<StockArray[]>(json);
+            public StockArray[] FromJson(string json) => JsonConvert.DeserializeObject<StockArray[]>(json);
         }
     }
 }

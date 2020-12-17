@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StonkView</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -19,10 +19,14 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Stocks">S&P500</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Stock" asp-action="Stocks">S&P500</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AccountManagement">Login</a>
+                        </li>
+                        <li class="nav-item">
+
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -34,7 +38,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2020 - $tonkView - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -43,6 +47,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/SearchStock.js" asp-append-version="true"></script>
     <script src="~/js/SelectStock.js" asp-append-version="true"></script>
+    <script src="~/js/MarketTime.js" asp-append-version="true"></script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

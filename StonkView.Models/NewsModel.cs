@@ -12,19 +12,28 @@ namespace StonkView.Models
     {
         public partial class NewsArray
         {
-            [JsonProperty("titel")]
-            public string Titel { get; set; }
+            [JsonProperty("title")]
+            public string title { get; set; }
 
             [JsonProperty("description")]
-            public string Description { get; set; }
+            public string description { get; set; }
 
             [JsonProperty("url")]
-            public string Url { get; set; }
+            public string url { get; set; }
+
+            [JsonProperty("urlToImage")]
+            public string urlToImage { get; set; }
+
+            [JsonProperty("content")]
+            public string content { get; set; }
+
+            [JsonProperty("publishedAt")]
+            public string publishedAt { get; set; }
         }
 
         public partial class NewsArray
         {
-            public static NewsArray[] FromJson(string json) => JsonConvert.DeserializeObject<NewsArray[]>(json);
+            public NewsArray[] FromJson(string json) => JsonConvert.DeserializeObject<NewsArray[]>(json);
         }
     }
 }

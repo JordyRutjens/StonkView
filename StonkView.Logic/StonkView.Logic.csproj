@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
@@ -9,8 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StonkView.DataAccess\StonkView.DataAccess.csproj" />
     <ProjectReference Include="..\StonkView.Factory\StonkView.Factory.csproj" />
     <ProjectReference Include="..\StonkView.Models\StonkView.Models.csproj" />
   </ItemGroup>
-
+  
 </Project>

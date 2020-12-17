@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "News";
+    var news = (NewsModel.NewsArray[])ViewData["News"];
+}
+@model StonkView.Models.NewsModel
+
+<br />
+<div class="text-center">
+    <h1 class="display-4">News</h1>
+</div>
+
+<body>
+    @foreach (NewsModel.NewsArray _news in news)
+    {
+    <div class="text-center shadow p-3 mb-5 rounded" style="background-color:#314970">
+        <a style="font-size:12px" class="float-left">
+            @Html.DisplayFor(modelItem => _news.publishedAt)
+        </a>
+        <br />
+        <a style="color:cornflowerblue; font-size:24px" href="@Html.DisplayFor(modelItem => _news.url)">
+            @Html.DisplayFor(modelItem => _news.title)
+        </a>
+        <hr />
+        <p style="font-style:italic; font-size:18px">
+            @Html.DisplayFor(modelItem => _news.description)
+        </p>
+        <img src="@Html.DisplayFor(modelItem => _news.urlToImage)" style="width:500px" class="shadow p-3 mb-5 rounded " alt="Couldn't load image. Sorry!" />
+        <hr />
+        <a href="@Html.DisplayFor(modelItem => _news.url)" class="btn">View Article</a>
+    </div>
+    }
+</body>
+<hr />

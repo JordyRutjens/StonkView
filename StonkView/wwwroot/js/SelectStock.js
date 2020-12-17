@@ -2,6 +2,7 @@
     $(this).addClass('selected').siblings().removeClass('selected');
     var value = $(this).find('td:first').html();
     alert("You have clicked stock "+value + "(For Debugging)");
+    SelectStock();
 
 });
 

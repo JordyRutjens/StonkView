@@ -1,43 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var news = (NewsModel.NewsArray[])ViewData["News"];
 }
-@model StonkView.Models.NewsModel
+<body>
+    <br />
+    <div class="container text-center h-auto shadow p-1 mb-3 rounded float-sm-right">
+        <p id="time"></p>
+        <p id="market"></p>
+    </div>
 
-<br />
-<br />
-@*<div class="text-center">
-    @foreach (NewsModel.NewsArray _news in news)
-    {
+    <section id="home" class="align-items-center">
+        <div class="container shadow p-3 mb-5 rounded d-flex" style="background-color: #314970">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <h1>StonkView</h1>
+                    <h2>Stock Analasys</h2>
+                    <h3>News, Search Stocks, Graphs</h3>
+                    <h5>
+                        Logged in as: 
+                    </h5>
 
-        @Html.DisplayFor(modelItem => _news.Titel)
+                    <hr />
+                    <div class="d-lg-flex shadow p-3 mb-5 rounded">
+                        <a href="/Stock/Stocks" class="btn">View the S&P500</a>
+                        <a href="/Stock/Search" class="btn" style="margin-left:10px">Search a stock</a>
+                        <a href="/News/News" class="btn" style="margin-left:10px">Stock News</a>
+                        <a href="/Home/AccountManagement" class="btn" style="margin-left:10px">Account Management</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 home-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="~/img/home_gif.gif" class="img-fluid animated img" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 
-        @Html.DisplayFor(modelItem => _news.Description)
-
-        @Html.DisplayFor(modelItem => _news.Url)
-
-    }
-</div>*@
-
-<div class="input-container">
-    <input type="text" name="inputField" id="inputField" placeholder="Stock Finder" />
-</div>
-
-<p id="Ticker" class="text-body"></p>
-<div id="chart"></div>
-<script src="~/js/stockchart.js"></script>
-<script type="text/javascript">
-    var input = document.getElementById("inputField");
-
-    input.addEventListener('change', function () {
-        var chart = new StockChart();
-        chart.element = document.getElementById('chart');
-        chart.key = 'QEEUW4RQQ3JJFSF2';
-        chart.ticker = document.getElementById("inputField").value;
-        chart.style.width = '100%';
-        chart.style.height = '420px';
-
-        chart.draw();
-        document.getElementById("Ticker").innerHTML = "$" + document.getElementById("inputField").value;
-    });
-</script>

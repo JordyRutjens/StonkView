@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+@model StonkView.Models.SearchModel
+
+
+<br />
+<body>
+    <form asp-action="SearchStock">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class=" container-fluid shadow p-3 mb-5 rounded">
+            <div class="input-container">
+                <input type="text" name="searchTicker" id="SearchStock" placeholder="Stock Finder" required />
+            </div>
+            <div class="container">
+                <div class="text-center">
+                    <input type="submit" class="btn" value="Search" />
+                    <br />
+                    <h2>
+                        @SearchModel.errorTextSearch
+                    </h2>
+                    <br />
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 home-img mx-auto d-block" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="~/img/search.gif" class="img-fluid animated img " alt="">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+

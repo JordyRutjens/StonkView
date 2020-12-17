@@ -9,18 +9,18 @@ using StonkView.Models;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System.Net;
-using static StonkView.Models.StockModel;
+using StonkView.Logic;
+
 
 namespace StonkView.Controllers
 {
 
     public class HomeController : Controller
-    {
+    {       
+        Account account = new Account();
+
         private readonly ILogger<HomeController> _logger;
 
-        public void OnGet()
-        {
-        }
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -29,23 +29,7 @@ namespace StonkView.Controllers
 
         public IActionResult Index()
         {
-            //Logic.News.LoadNews();
-            //ViewData["News"] = Logic.News.news;
-            return View();
-        }
-        public IActionResult Stocks()
-        {
-            Logic.Stock.LoadStocks();
-            ViewData["StockList"] = Logic.Stock.stocks;
-            return View();
-        }
-
-        public IActionResult StockDetails()
-        {
-            return View();
-        }
-        public IActionResult AddTicker()
-        {
+            account.AccountUsername();
             return View();
         }
 
@@ -55,35 +39,20 @@ namespace StonkView.Controllers
         }
         public IActionResult AccountManagement()
         {
-            AccountModel accountViewModel = new AccountModel();
+             AccountModel accountViewModel = new AccountModel();
             return View(accountViewModel);
         }
 
         public IActionResult SignUp(AccountModel accountSignUp)
         {
-            Console.WriteLine(accountSignUp.accountUsername + "SIGNUP");
-            Console.WriteLine(accountSignUp.accountPassword + "SIGNUP");
-
-            //MySqlConnection conn = new MySqlConnection("Data Source=localhost;Initial Catalog=StonkView;Integrated Security=True;Pooling=False");
-
-            //MySqlCommand cmd;
-            //string cmdString;
-            //conn.Open();
-
-            //cmdString = "INSERT INTO `account`(`accountName`, `accountPassword`, `accountMail`, `accountID`) VALUES('testName', 'testPassword','testMail', '2')";
-
-            //cmd = new MySqlCommand(cmdString, conn);
-            //cmd.ExecuteReader();
-
-            //conn.Close();
+            account.CreateAccount(accountSignUp.accountUsername, accountSignUp.accountPassword,accountSignUp.accountEmail);
             return View("Index");
         }
 
         public IActionResult Login(AccountModel accountLogin)
         {
-            Console.WriteLine(accountLogin.accountUsername + "SIGNIN");
-            Console.WriteLine(accountLogin.accountPassword + "SIGNIN");
-
+            account.ValidateLogin(accountLogin.accountUsername, accountLogin.accountPassword);
+            account.AccountUsername();
             return View("Index");
         }
 

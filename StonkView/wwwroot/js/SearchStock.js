@@ -1,10 +1,11 @@
-﻿function Search() {
+﻿function search() {
+
     var input, filter, table, tr, td, i, txtValue;
 
     input = document.getElementById("SearchStock");
     filter = input.value.toUpperCase();
     table = document.getElementById("StockTable");
-    tr = table.getElementById("SearchItem");
+    tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];

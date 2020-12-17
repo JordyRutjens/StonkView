@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace StonkView.Models
 {
-    public class AccountModel
+    public class SearchModel
     {
-        public string accountUsername { get; set; }
-        public string accountPassword { get; set; }
+        public string searchTicker { get; set; }
+        public static string errorTextSearch;
     }
 }
