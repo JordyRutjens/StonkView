@@ -52,7 +52,7 @@ namespace StonkView.Controllers
         public IActionResult Login(AccountModel accountLogin)
         {
             account.ValidateLogin(accountLogin.accountUsername, accountLogin.accountPassword);
-            account.AccountUsername();
+            ViewData["LoggedAccount"] = account.AccountUsername();
             return View("Index");
         }
 

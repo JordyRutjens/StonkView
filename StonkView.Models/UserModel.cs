@@ -9,7 +9,5 @@ namespace StonkView.Models
     {
         public int UserId { get; private set; }
         public string accountUsername { get; set; }
-        public string accountEmail { get; set; }
-        public string accountPassword { get; set; }
     }
 }

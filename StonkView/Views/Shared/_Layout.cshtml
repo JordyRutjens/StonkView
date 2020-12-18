@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var accountName = ViewData["LoggedAccount"];
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - $tonkView</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,6 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
             <div class="container">
+                <img src="~/img/home-icon.png" width="50" height="50" class="d-inline-block align-top" alt="">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StonkView</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -19,13 +25,18 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Stock" asp-action="Stocks">S&P500</a>
+                            <a class="nav-link" asp-area="" asp-controller="Stock" asp-action="Stocks">S&P500</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AccountManagement">Login</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AccountManagement">Login</a>
                         </li>
-                        <li class="nav-item">
 
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse w-auto order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-text">
+                            @accountName
                         </li>
                     </ul>
                 </div>

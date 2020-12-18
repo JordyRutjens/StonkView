@@ -27,8 +27,17 @@ namespace StonkView.Logic
 
         public string AccountUsername()
         {
-            Console.WriteLine(account.GetUsername());
-            return account.GetUsername();
+            string output;
+            if (account.GetUsername() == "0")
+            {
+                output = "";               
+            }
+            else
+            {
+                output = "Welcome, " + account.GetUsername() + "!";
+            }
+
+            return output;
         }
     }
 }
