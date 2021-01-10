@@ -1,8 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Stocks";
-    var stocks = (StockModel.StockArray[])ViewData["StockList"];
+    ViewData["Title"] = "Favorites";
+    var favorites = ViewData["FavoriteList"];
 }
-@model StonkView.Models.StockModel
+@model StonkView.Models.FavoriteModel
 
 
 <br />
@@ -27,12 +27,8 @@
                         SYMBOL
                     </th>
                     <th>
-                        NAME
+                        TIME ADDED
                     </th>
-                    <th>
-                        SECTOR
-                    </th>
-
                     <th>
                     </th>
                     <th>
@@ -41,24 +37,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (StockModel.StockArray stock in stocks)
-                {
+                @*@foreach (FavoriteModel favorite in favorites)
+                {*@
                 <tr id="SearchItem">
                     <td style="color:dodgerblue">
-                        @Html.DisplayFor(modelItem => stock.Symbol)
+                        @*@Html.DisplayFor(modelItem => favorite.Symbol)*@
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => stock.Name)
+                        @*@Html.DisplayFor(modelItem => favorite.AddDate)*@
+                    </td>
+
+                    <td>
+                        <a asp-action="RemoveFavorite" id="RemoveButton" class="btn">Remove</a>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => stock.Sector)
-                    </td>
-                    <td>
-                        <a asp-action="StockDetails" id="DetailsButton" class="btn">Details</a>
-                    </td>
-                    <td>
-                        @Html.ActionLink("ticker", "AddFavorite", "StockController", new { ticker = stock.Symbol }, null)
-                        @*<a asp-action="AddFavorite" id="FavoriteButton" class="btn">Favorite</a>*@
+                        <a asp-action="Details" id="DetailButton" class="btn">Details</a>
                     </td>
                 </tr>
                 }

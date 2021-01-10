@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StonkView.Factory\StonkView.Factory.csproj" />
-    <ProjectReference Include="..\StonkView.Interface\StonkView.Interface.csproj" />
     <ProjectReference Include="..\StonkView.Logic\StonkView.Logic.csproj" />
     <ProjectReference Include="..\StonkView.Models\StonkView.Models.csproj" />
   </ItemGroup>

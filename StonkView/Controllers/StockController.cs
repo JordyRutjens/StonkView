@@ -8,11 +8,13 @@ using StonkView.Models;
 using StonkView.Factory;
 using System.Web;
 
+
 namespace StonkView.Controllers
 {
     public class StockController : Controller
     {
         Stock stock = new Stock();
+        Favorite favorite = new Favorite();
 
         public IActionResult Stocks()
         {
@@ -28,6 +30,12 @@ namespace StonkView.Controllers
         public IActionResult StockDetails(object sender, EventArgs e)
         {
             return View();
+        }
+        public IActionResult AddFavorite(string ticker)
+        {
+            favorite.AddFavoriteToAccount(ticker, UserModel.accountID);
+            ViewData["StockList"] = stock.LoadStocks();
+            return View("Stocks");
         }
         public IActionResult AddTicker()
         {

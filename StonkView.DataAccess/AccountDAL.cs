@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,9 +13,13 @@ namespace StonkView.DataAccess
 {
     public class AccountDAL
     {
-        private MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=usbw;database=stonkview;");
+        private MySqlConnection conn = new MySqlConnection("datasource = 127.0.0.1; port=3306;username=root;password=usbw;database=stonkview");
         private int accountID;
-        
+        public int GetAccountID()
+        {
+            return accountID;
+        }
+
         private int GetLastMadeID()
         {
             conn.Open();

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using StonkView.DataAccess;
+using StonkView.Models;
 
 namespace StonkView.Logic
 {
@@ -30,14 +31,18 @@ namespace StonkView.Logic
             string output;
             if (account.GetUsername() == "0")
             {
-                output = "";               
+                output = "NULL";
             }
             else
             {
                 output = "Welcome, " + account.GetUsername() + "!";
             }
-
+            UserModel.accountUsername = output;
             return output;
+        }
+        public int AccountID()
+        {              
+            return UserModel.accountID = account.GetAccountID();
         }
     }
 }

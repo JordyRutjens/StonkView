@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var accountName = ViewData["LoggedAccount"];
+
 }
 
 <body>
@@ -16,13 +18,13 @@
                     <h1>StonkView</h1>
                     <h2>Stock Analasys</h2>
                     <h3>News, Search Stocks, Graphs</h3>
-
                     <hr />
                     <div class="d-lg-flex shadow p-3 mb-5 rounded">
                         <a href="/Stock/Stocks" class="btn">View the S&P500</a>
                         <a href="/Stock/Search" class="btn" style="margin-left:10px">Search a stock</a>
                         <a href="/News/News" class="btn" style="margin-left:10px">Stock News</a>
-                        <a href="/Home/AccountManagement" class="btn" style="margin-left:10px">Account Management</a>
+                        <a href="/Account/AccountManagement" class="btn" style="margin-left:10px">Account Management</a>
+                        @*<a href="/Stock/Favorite" class="btn" style="margin-left:10px">Favorites</a>*@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 home-img" data-aos="zoom-in" data-aos-delay="200">

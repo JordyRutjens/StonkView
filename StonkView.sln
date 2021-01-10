@@ -7,13 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.MVC", "StonkView\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.Logic", "StonkView.Logic\StonkView.Logic.csproj", "{D780ED10-8069-4DC4-8FA7-442F51C6B5A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.Interface", "StonkView.Interface\StonkView.Interface.csproj", "{45F48208-05F8-45BE-9A3E-5F7DD3DEA54D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.Factory", "StonkView.Factory\StonkView.Factory.csproj", "{FB11128B-3482-436B-BC04-E201E70C409E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.Models", "StonkView.Models\StonkView.Models.csproj", "{300F4093-88E6-4060-AF78-8D10D53C0EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StonkView.DataAccess", "StonkView.DataAccess\StonkView.DataAccess.csproj", "{5B166F12-8ABC-4B3B-8BC4-731F366F0534}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StonkView.DataAccess", "StonkView.DataAccess\StonkView.DataAccess.csproj", "{5B166F12-8ABC-4B3B-8BC4-731F366F0534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{D780ED10-8069-4DC4-8FA7-442F51C6B5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D780ED10-8069-4DC4-8FA7-442F51C6B5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D780ED10-8069-4DC4-8FA7-442F51C6B5A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45F48208-05F8-45BE-9A3E-5F7DD3DEA54D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45F48208-05F8-45BE-9A3E-5F7DD3DEA54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45F48208-05F8-45BE-9A3E-5F7DD3DEA54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45F48208-05F8-45BE-9A3E-5F7DD3DEA54D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB11128B-3482-436B-BC04-E201E70C409E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB11128B-3482-436B-BC04-E201E70C409E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB11128B-3482-436B-BC04-E201E70C409E}.Release|Any CPU.ActiveCfg = Release|Any CPU

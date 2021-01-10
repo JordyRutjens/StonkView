@@ -7,7 +7,7 @@ namespace StonkView.Models
 {
     public class UserModel
     {
-        public int UserId { get; private set; }
-        public string accountUsername { get; set; }
+        public static int accountID;
+        public static string accountUsername;
     }
 }
