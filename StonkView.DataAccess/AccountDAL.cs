@@ -7,14 +7,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient; 
+using MySql.Data.MySqlClient;
+using StonkView.Models;
+using StonkView.Inferface;
 
 namespace StonkView.DataAccess
 {
-    public class AccountDAL
+    public class AccountDAL : IAccountDAL
     {
-        private MySqlConnection conn = new MySqlConnection("datasource = 127.0.0.1; port=3306;username=root;password=usbw;database=stonkview");
+        private MySqlConnection conn;
         private int accountID;
+        public void SetConnection(string connectionString)
+        {
+            conn = new MySqlConnection(connectionString);
+        }
+
         public int GetAccountID()
         {
             return accountID;
@@ -25,6 +32,7 @@ namespace StonkView.DataAccess
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT MAX(accountID) FROM `account`", conn);
             int id = Convert.ToInt32(cmd.ExecuteScalar().ToString() == "" ? 0 : cmd.ExecuteScalar());
+            conn.Close();
             return id;
         }
         public void CreateAccount(string username, string password, string email)
@@ -32,7 +40,7 @@ namespace StonkView.DataAccess
             int id = GetLastMadeID() + 1;
             string cmdString = "INSERT INTO `account`(`accountName`, `accountPassword`, `accountMail`, `accountID`) VALUES(@username,@password,@email,@id)";
             MySqlCommand cmd = new MySqlCommand(cmdString, conn);
-
+            conn.Open();
             cmd.Parameters.AddWithValue("@username", username);
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@email", email);

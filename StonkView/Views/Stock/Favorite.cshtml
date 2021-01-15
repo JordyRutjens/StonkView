@@ -1,8 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Favorites";
-    var favorites = ViewData["FavoriteList"];
+    List<string> favorites = (List<string>)ViewData["FavoriteListAccount"];
 }
-@model StonkView.Models.FavoriteModel
 
 
 <br />
@@ -27,32 +26,26 @@
                         SYMBOL
                     </th>
                     <th>
-                        TIME ADDED
+                        VIEW DETAILS
                     </th>
-                    <th>
-                    </th>
-                    <th>
-                   </th>
+
 
                 </tr>
             </thead>
             <tbody>
-                @*@foreach (FavoriteModel favorite in favorites)
-                {*@
+                @foreach (var favorite in favorites)
+                {
                 <tr id="SearchItem">
                     <td style="color:dodgerblue">
-                        @*@Html.DisplayFor(modelItem => favorite.Symbol)*@
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => favorite.AddDate)*@
+                        @favorite
                     </td>
 
-                    <td>
+                    @*<td>
                         <a asp-action="RemoveFavorite" id="RemoveButton" class="btn">Remove</a>
-                    </td>
-                    <td>
-                        <a asp-action="Details" id="DetailButton" class="btn">Details</a>
-                    </td>
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Details", "LoadStock", "Stock", new { ticker = favorite }, new { @class = "btn" })
+                </td>
                 </tr>
                 }
             </tbody>

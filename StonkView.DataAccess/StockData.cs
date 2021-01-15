@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StonkView.Factory
+namespace StonkView.DataAccess
 {
     public class StockData
     {

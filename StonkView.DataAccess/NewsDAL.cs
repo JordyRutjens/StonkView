@@ -5,10 +5,11 @@ using System.Net;
 using StonkView.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using StonkView.Inferface;
 
 namespace StonkView.DataAccess
 {
-    public class NewsDAL
+    public class NewsDAL : INewsDAL
     {
         public NewsModel.NewsArray[] LoadNews()
         {

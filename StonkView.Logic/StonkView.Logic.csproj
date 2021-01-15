@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StockView.Inferface\StonkView.Inferface.csproj" />
     <ProjectReference Include="..\StonkView.DataAccess\StonkView.DataAccess.csproj" />
     <ProjectReference Include="..\StonkView.Factory\StonkView.Factory.csproj" />
     <ProjectReference Include="..\StonkView.Models\StonkView.Models.csproj" />

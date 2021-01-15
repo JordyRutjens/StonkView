@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,7 +10,7 @@
   </ItemGroup>
   
     <ItemGroup>
-      <ProjectReference Include="..\StonkView.Factory\StonkView.Factory.csproj" />
+      <ProjectReference Include="..\StockView.Inferface\StonkView.Inferface.csproj" />
       <ProjectReference Include="..\StonkView.Models\StonkView.Models.csproj" />
     </ItemGroup>
 </Project>

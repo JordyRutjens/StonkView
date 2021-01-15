@@ -9,13 +9,20 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using StonkView.DataAccess;
 using StonkView.Models;
+using StonkView.Factory;
+using StonkView.Inferface;
 
 namespace StonkView.Logic
 {
-    public class Account
+    public class Account : IAccount
     {
-        private AccountDAL account = new AccountDAL();
-
+        
+        private IAccountDAL account = AccountFactory.GetDAL();
+            
+        public void SetConnection(string connectionString)
+        {
+            account.SetConnection(connectionString);
+        }
         public void CreateAccount(string username, string password, string email)
         {
             account.CreateAccount(username, password, email);
@@ -31,7 +38,7 @@ namespace StonkView.Logic
             string output;
             if (account.GetUsername() == "0")
             {
-                output = "NULL";
+                output = "Failed to login!";
             }
             else
             {
@@ -41,7 +48,7 @@ namespace StonkView.Logic
             return output;
         }
         public int AccountID()
-        {              
+        {
             return UserModel.accountID = account.GetAccountID();
         }
     }

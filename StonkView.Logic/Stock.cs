@@ -8,12 +8,13 @@ using System.Data;
 using StonkView.Models;
 using Newtonsoft.Json;
 using StonkView.Factory;
+using StonkView.Inferface;
 
 namespace StonkView.Logic
 {
-    public class Stock
+    public class Stock : IStockDAL
     {
-        DataAccess.StockDAL stock = new DataAccess.StockDAL();
+        private IStockDAL stock = StockFactory.GetDAL();
         public StockModel.StockArray[] LoadStocks()
         {
             return stock.LoadStocks();

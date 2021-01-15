@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StonkView.Logic;
 using StonkView.Models;
-using StonkView.Factory;
+using StonkView.DataAccess;
 using System.Web;
-
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace StonkView.Controllers
 {
@@ -15,9 +16,19 @@ namespace StonkView.Controllers
     {
         Stock stock = new Stock();
         Favorite favorite = new Favorite();
+        private void GetConnectionString()
+        {
+            var builder = new
+            ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json",
+            optional: true, reloadOnChange: true);
+
+            string _connectionString = builder.Build().GetSection("ConnectionStrings").GetSection("DatabaseConnection").Value;
+            favorite.SetConnection(_connectionString);
+        }
 
         public IActionResult Stocks()
         {
+            GetConnectionString();
             ViewData["StockList"] = stock.LoadStocks();
             return View();
         }
@@ -27,19 +38,23 @@ namespace StonkView.Controllers
             return View("StockDetails");
         }
 
-        public IActionResult StockDetails(object sender, EventArgs e)
+        public IActionResult StockDetails()
         {
             return View();
         }
         public IActionResult AddFavorite(string ticker)
         {
-            favorite.AddFavoriteToAccount(ticker, UserModel.accountID);
-            ViewData["StockList"] = stock.LoadStocks();
-            return View("Stocks");
-        }
-        public IActionResult AddTicker()
-        {
-            return View();
+            if (UserModel.accountID > 0)
+            {
+                GetConnectionString();
+                favorite.AddFavoriteToAccount(ticker, UserModel.accountID);
+                ViewData["StockList"] = stock.LoadStocks();
+                return View("Stocks");
+            }
+            else
+            {
+                return RedirectToAction("AccountManagement", "Account");
+            }
         }
 
         public IActionResult Search()
@@ -56,6 +71,21 @@ namespace StonkView.Controllers
                 return View("Search");
             }
             return View("StockDetails");
+        }
+
+        public IActionResult Favorite()
+        {
+            if (UserModel.accountID > 0)
+            {
+                GetConnectionString();
+                List<string> favoriteList = favorite.GetFavoriteFromAccount(UserModel.accountID);
+                ViewData["FavoriteListAccount"] = favoriteList;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccountManagement", "Account");
+            }
         }
     }
 }

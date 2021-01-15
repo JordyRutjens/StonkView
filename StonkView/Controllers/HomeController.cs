@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using StonkView.Models;
-
+using StonkView.Logic;
+using System.IO;
 
 namespace StonkView.Controllers
 {
@@ -13,7 +14,7 @@ namespace StonkView.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration configuration;
+        private Favorite favorite = new Favorite();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -22,9 +23,8 @@ namespace StonkView.Controllers
 
         public IActionResult Index()
         {
-            string connectionString = configuration.GetConnectionString("DatabaseConnection");
-            ViewData["LoggedAccountAccountUsername"] = UserModel.accountUsername;
-            ViewData["LoggedAccountAccountID"] = UserModel.accountID;
+            ViewData["LoggedAccountUsername"] = UserModel.accountUsername;
+            ViewData["LoggedAccountID"] = UserModel.accountID;
             return View();
         }
 

@@ -8,15 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using StonkView.DataAccess;
+using StonkView.Factory;
+using StonkView.Inferface;
+using StonkView.Models;
 
 namespace StonkView.Logic
 {
-    public class Favorite
+    public class Favorite : IFavorite
     {
-        FavoriteDAL favorite = new FavoriteDAL();
+        private IFavoriteDAL favorite = FavoriteFactory.GetDAL();
         public void AddFavoriteToAccount(string ticker, int id)
         {
             favorite.addFavoriteStockToAccount(ticker, id);
+        }
+        public List<string> GetFavoriteFromAccount(int id)
+        {
+            return favorite.getFavoriteStockFromAccount(id);
+        }
+        public void SetConnection(string connectionString)
+        {
+            favorite.SetConnection(connectionString);
         }
     }
 }

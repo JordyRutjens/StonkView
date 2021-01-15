@@ -54,11 +54,10 @@
                         @Html.DisplayFor(modelItem => stock.Sector)
                     </td>
                     <td>
-                        <a asp-action="StockDetails" id="DetailsButton" class="btn">Details</a>
+                        @Html.ActionLink("Details", "LoadStock", "Stock", new { ticker = stock.Symbol }, new { @class = "btn" })
                     </td>
                     <td>
-                        @Html.ActionLink("ticker", "AddFavorite", "StockController", new { ticker = stock.Symbol }, null)
-                        @*<a asp-action="AddFavorite" id="FavoriteButton" class="btn">Favorite</a>*@
+                        @Html.ActionLink("Add Favorite", "AddFavorite", "Stock", new { ticker = stock.Symbol },  new { @class = "btn" })
                     </td>
                 </tr>
                 }

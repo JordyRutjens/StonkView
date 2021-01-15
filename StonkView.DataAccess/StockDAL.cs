@@ -7,11 +7,11 @@ using System.IO;
 using System.Data;
 using StonkView.Models;
 using Newtonsoft.Json;
-using StonkView.Factory;
+using StonkView.Inferface;
 
 namespace StonkView.DataAccess
 {
-    public class StockDAL
+    public class StockDAL : IStockDAL
     {
         StockModel.StockArray stockArray = new StockModel.StockArray();
         public StockModel.StockArray[] LoadStocks()

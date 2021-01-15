@@ -1,10 +1,26 @@
 ﻿@{
     ViewData["Title"] = "Account Management";
+    var accountName = ViewData["LoggedAccountUsername"];
+    var accountID = ViewData["LoggedAccountID"];
 }
-<br />
-<br />
-<div class="text-center">
-    <h1 class="display-4">Account Page</h1>
-    <p>Your account page.</p>
 
-</div>
+<br />
+<br />
+<body>
+    <section id="home" class="align-items-center">
+        <div class="container shadow p-3 mb-5 rounded d-flex" style="background-color: #314970">
+            <div class="row">
+                <div class="col-lg-7 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <h1>@accountName</h1>
+                    <hr />
+                    <div class="d-lg-flex shadow p-3 mb-5 rounded">
+                        <a href="/Stock/Stocks" class="btn">View the S&P500</a>
+                        <a href="/Stock/Search" class="btn" style="margin-left:10px">Search a stock</a>
+                        <a href="/News/News" class="btn" style="margin-left:10px">Stock News</a>
+                        <a href="/Stock/Favorite" class="btn" style="margin-left:10px">Favorites</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

@@ -6,11 +6,11 @@ using StonkView.Inferface;
 
 namespace StonkView.Factory
 {
-    public class AccountFactory
+    public class StockFactory
     {
-        public static IAccountDAL GetDAL()
+        public static IStockDAL GetDAL()
         {
-            return new AccountDAL();
+            return new StockDAL();
         }
     }
 }
